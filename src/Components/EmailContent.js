@@ -7,6 +7,8 @@ export default function EmailContent() {
                 <option value={1}>Sales Order</option>
                 <option value={2}>Sales Quote</option>
             </select>
+            <label for="subject">Subject</label>
+            <input id="subject" />
         </>
     );
 }

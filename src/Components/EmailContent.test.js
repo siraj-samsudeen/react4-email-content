@@ -6,7 +6,12 @@ test("checking the email content title", () => {
     screen.getByTitle("Email Content");
 })
 
-test("checking whether the select input is present", () => {
+test("checking whether the  type select input is present", () => {
     render(<EmailContent />);
-    screen.getByLabelText(/type/i);
+    screen.getByLabelText(/type/i, { selector: "select" });
+});
+
+test("checking whether the subject input is present", () => {
+    render(<EmailContent />);
+    screen.getByLabelText(/subject/i, { selector: "input" });
 });

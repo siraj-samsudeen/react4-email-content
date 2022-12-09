@@ -11,6 +11,7 @@ export default function EmailContent() {
             <input id="subject" />
             <label for="body">Body</label>
             <textarea id="body" ></textarea>
+            <button>Update</button>
         </>
     );
 }

@@ -9,6 +9,8 @@ export default function EmailContent() {
             </select>
             <label for="subject">Subject</label>
             <input id="subject" />
+            <label for="body">Body</label>
+            <textarea id="body" ></textarea>
         </>
     );
 }

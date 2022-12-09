@@ -15,3 +15,8 @@ test("checking whether the subject input is present", () => {
     render(<EmailContent />);
     screen.getByLabelText(/subject/i, { selector: "input" });
 });
+
+test("checking whether the body textarea is present", () => {
+    render(<EmailContent />);
+    screen.getByLabelText(/body/i, { selector: "textarea" });
+});

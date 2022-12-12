@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function EmailContent() {
 
+    const [type, setType] = useState("1");
     const [subject, setSubject] = useState("");
     const [body, setBody] = useState("");
 
@@ -10,11 +11,18 @@ export default function EmailContent() {
         setBody("new body");
     }
 
+    const handleCancel = () => {
+        setSubject("");
+        setBody("");
+        setType("");
+    }
+
     return (
         <>
             <div title="Email Content"></div>
             <label for="type">Type</label>
-            <select id="type" onChange={handleTypeChange}>
+            <select id="type" value={type} onChange={handleTypeChange}>
+                <option value={""}></option>
                 <option value={1}>Sales Order</option>
                 <option value={2}>Sales Quote</option>
             </select>
@@ -26,6 +34,7 @@ export default function EmailContent() {
             <textarea data-testid="body" id="body" value={body}></textarea>
             <br />
             <button>Update</button>
+            <button onClick={handleCancel}>Cancel</button>
         </>
     );
 }

@@ -1,5 +1,14 @@
-export default function App() {
-    <div className="App">
 
-    </div>
+import EmailContent from './Components/EmailContent';
+
+function App() {
+    return (
+        <div className="App">
+            <header className="App-header">
+                <EmailContent />
+            </header>
+        </div>
+    );
 }
+
+export default App;

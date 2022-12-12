@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import EmailContent from './EmailContent';
 
 test("checking the email content title", () => {
@@ -24,4 +25,15 @@ test("checking whether the body textarea is present", () => {
 test("checking whether the update button is present", () => {
     render(<EmailContent />);
     screen.getByRole('button', { name: /update/i });
+});
+
+test("checking whether data is loaded after changing type", () => {
+    render(<EmailContent />);
+    var type = screen.getByLabelText(/type/i, { selector: "select" });
+    userEvent.selectOptions(type, "2")
+    var subject = screen.getByLabelText(/subject/i, { selector: "input" });
+    expect(subject.value).toEqual("new subject")
+
+    var body = screen.getByLabelText(/body/i, { selector: "textarea" });
+    expect(body.value).toEqual("new body")
 });

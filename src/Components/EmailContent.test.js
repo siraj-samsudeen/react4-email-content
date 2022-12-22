@@ -9,27 +9,32 @@ test("checking the email content title", () => {
 
 test("checking whether the  type select input is present", () => {
     render(<EmailContent />);
-    screen.getByLabelText(/type/i, { selector: "select" });
+    var x = screen.queryByLabelText(/type/i, { selector: "select" });
+    expect(x).toBeVisible();
 });
 
 test("checking whether the subject input is present", () => {
     render(<EmailContent />);
-    screen.getByLabelText(/subject/i, { selector: "input" });
+    var x = screen.queryByLabelText(/subject/i, { selector: "input" });
+    expect(x).toBeInTheDocument();
 });
 
 test("checking whether the body textarea is present", () => {
     render(<EmailContent />);
-    screen.getByLabelText(/body/i, { selector: "textarea" });
+    var x = screen.getByLabelText(/body/i, { selector: "textarea" });
+    expect(x).toBeInTheDocument();
 });
 
 test("checking whether the update button is present", () => {
     render(<EmailContent />);
-    screen.getByRole('button', { name: /update/i });
+    var x = screen.getByRole('button', { name: /update/i });
+    expect(x).toBeInTheDocument();
 });
 
 test("checking whether the cancel button is present", () => {
     render(<EmailContent />);
-    screen.getByRole('button', { name: /cancel/i });
+    var x = screen.getByRole('button', { name: /cancel/i });
+    expect(x).toBeInTheDocument();
 });
 
 test("checking whether data is loaded after changing type", () => {
